@@ -1,0 +1,84 @@
+﻿@model Workstatic.Models.JobPosting;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+	ViewData["Title"] = "Erstellen oder Bearbeiten";
+}
+
+
+<form asp-controller="JobPosting" asp-action="CreateEditJob" enctype="multipart/form-data">
+	<div class="card">
+		<div class="card-header">
+			<h5>Inserat bearbeiten</h5>
+		</div>
+
+		<div class="card-body">
+
+			<input hidden asp-for="Id" />
+
+			<div class="row form-group">
+				<div class="col">
+					<input class="form-control" asp-for="JobTitle" type="text"  required placeholder="Bitte trage eine Jobbezeichnung ein" />
+				</div>
+				<div class="col">
+					<input class="form-control" asp-for="JobLocation" type="text" required placeholder="Bitte trage eine Ort ein" />
+				</div>
+			</div>
+
+			<div class="row form-group">
+				<div class="col">
+					<textarea rows="6" class="form-control" asp-for="Description" required type="text" placeholder="Bitte trage eine ausführliche Beschreibung ein ein">
+				</textarea>
+				</div>
+			</div>
+
+			<div class="row form-group">
+				<div class="col">
+					<input class="form-control" asp-for="Salary" type="number" required placeholder="Wie viel Jahresgehalt zahlt ihr?" />
+				</div>
+			</div>
+
+			<div class="row form-group">
+				<div class="col">
+					Wann startet der Job?
+					<input class="form-control" asp-for="StartDate" type="date" required placeholder="Wann startet der Job?" />
+				</div>
+			</div>
+		
+
+		<hr />
+
+		<div class="row form-group">
+			<div class="col">
+				<input class="form-control" asp-for="CompanyName" type="text" required placeholder="Wie heißt deine Firma?" />
+			</div>
+			<div class="col">
+				<input class="form-control" asp-for="ContactWebsite" type="url" required placeholder="Wie lautet die Webadresse?" />
+			</div>
+		</div>
+
+		<div class="row form-group">
+			<div class="col">
+				<input class="form-control" asp-for="ContactPhone" type="tel" required placeholder="Telefonnummer" />
+			</div>
+			<div class="col">
+				<input class="form-control" asp-for="ContactMail" type="email" required placeholder="E-Mail Adresse" />
+			</div>
+		</div>
+
+			<div class="row form-group">
+				<div class="col">
+					<label>Bild</label>
+					<input class="form-control-file" name="file" type="file" required/>
+				</div>
+			</div>
+		</div>
+
+		<div class="card-footer">
+			<button class="btn btn-primary" type="submit">Speichern</button>
+		</div>
+	</div>
+
+
+</form>
